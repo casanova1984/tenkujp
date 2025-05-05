@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nhà Hàng Cao Cấp Tenku | Đặt Bàn, Menu Đa Dạng, Không Gian Sang Trọng</title>
+    <link rel="icon" type="image/png" href="https://www.s79vietnam.com/assets/images/favicon.png">
+    <meta property="og:image"
+        content="https://github.com/buihuyhungkt32/tenku2/blob/main/images/bia.jpg?raw=true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #2e2e2e;
+            font-family: 'Segoe UI', sans-serif;
+            color: #fff;
+        }
+
+        footer {
+            background-color: #111;
+            color: #ccc;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .footer-col p,
+        .footer-col strong {
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        .footer-col i {
+            margin-right: 8px;
+            color: #ffcc00;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons i {
+            font-size: 20px;
+            margin-right: 12px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .social-icons i:hover {
+            color: #ffcc00;
+        }
+
+        .gov-icon {
+            margin-top: 20px;
+            height: 40px;
+        }
+
+        .email-form input {
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: none;
+        }
+
+        .email-form button {
+            padding: 10px 20px;
+            background: none;
+            color: white;
+            border: 1px solid white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .email-form button:hover {
+            background-color: white;
+            color: #111;
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                padding: 0 10px;
+            }
+        }
+
+        .custom-card {
+            background-color: #4c3847;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            margin-bottom: 40px;
+        }
+
+        .status-badge {
+            background-color: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .location-name {
+            font-size: 26px;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .info-line i {
+            margin-right: 8px;
+        }
+
+        .img-col-wrapper {
+            padding: 10px;
+        }
+
+        .img-col {
+            background-image: url('https://github.com/buihuyhungkt32/tenku2/blob/main/images/bia.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            border: 4px solid #fff;
+            border-radius: 12px;
+            min-height: 300px;
+        }
+
+        .booking-card {
+            background-color: #3b2d38;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .booking-card h4 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #ffd700;
+        }
+
+        .btn-submit {
+            background-color: #ffc107;
+            border: none;
+            font-weight: bold;
+            padding: 10px;
+            width: 100%;
+            border-radius: 8px;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #e0a800;
+        }
+
+        .menu-section,
+        .checkin-section {
+            margin-top: 40px;
+        }
+
+        .menu-title,
+        .checkin-title {
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 24px;
+            color: #ffd700;
+        }
+
+        .menu-card,
+        .checkin-card {
+            background-color: #3b2d38;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .menu-card:hover,
+        .checkin-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .menu-card img,
+        .checkin-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+        }
+
+        .card-body h5 {
+            font-weight: 600;
+            color: #ffd700;
+        }
+
+        .card-body p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .navbar {
+            background-color: #2e2e2e !important;
+        }
+
+        .navbar-toggler {
+            padding: 0;
+            border: none;
+
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .navbar-nav li,
+        .navbar-nav a {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-weight: 600;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107 !important;
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 16px;
+
+            }
+
+
+            .navbar-brand img {
+                width: 36px;
+                height: 36px;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .menu-card,
+            .checkin-card {
+                margin-bottom: 20px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .open-modal-btn:hover {
+            background-color: #f59e0b;
+        }
+
+        /* Nền tối cho modal */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Mặc định: điện thoại (mobile-first) */
+        .modal-content {
+            width: 95vw;
+            max-width: 95vw;
+            height: auto;
+            max-height: 95vh;
+            overflow-y: auto;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        /* Máy tính: màn hình từ 768px trở lên */
+        @media (min-width: 768px) {
+            .modal-content {
+                width: 50vw;
+                max-width: 50vw;
+            }
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            display: none;
+        }
+
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            color: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <header class="mb-2">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid px-3">
+                <a class="navbar-brand d-flex align-items-center text-white" href="#"
+                    style="font-weight: bold; font-family: 'Segoe UI', Tahoma, sans-serif;">
+                    <img src="https://github.com/buihuyhungkt32/tenku2/blob/main/images/avt.jpg?raw=true"
+                        alt="Avatar" style="
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+  ">
+
+                    <span
+                        style="margin-left:10px;font-size: 20px; font-style: italic; color: #ffffffcc; letter-spacing: 1px;">
+                        Tenku Japanese
+                    </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#menu">Thực đơn</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#checkin">Check-in</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#booking">Đặt bàn</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#footer">Liên hệ</a></li>
+                        <!-- Thêm mục Liên hệ -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div id="alertBox" class="position-fixed top-0 start-50 translate-middle-x mt-3 d-none"
+            style="z-index: 9999; min-width: 360px; max-width: 90vw;">
+            <div class="alert alert-success d-flex align-items-center shadow p-4 rounded-4" role="alert">
+                <i class="bi bi-check-circle-fill me-3 fs-3 text-success mt-1"></i>
+                <div>
+                    <h5 class="mb-1 text-success">Đặt bàn thành công!</h5>
+                    <p class="mb-0 text-secondary">Cảm ơn bạn đã sử dụng dịch vụ của nhà hàng của chúng tôi.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row custom-card g-0" data-aos="zoom-in">
+            <div class="col-md-7 p-4 d-flex flex-column justify-content-between">
+                <div>
+                    <span class="status-badge"><i class="bi bi-check-circle-fill"></i> Còn bàn</span>
+                    <div class="location-name">Tenku - Japanese Modern Kaiseki & Bar
+</div>
+                    <div class="info-line mb-2"><i class="bi bi-geo-alt-fill"></i>Tầng 67, Landmark 81</div>
+                    <div class="info-line"><i class="bi bi-clock-fill"></i>11:00 – 23:00 hằng ngày</div>
+                </div>
+            </div>
+            <div class="col-md-5 img-col-wrapper">
+                <div class="img-col"></div>
+            </div>
+        </div>
+
+        <div class="booking-card mt-4" id="booking" data-aos="fade-up" data-aos-offset="10">
+            <h4>Thông tin đặt bàn</h4>
+            <form>
+                <div class="row g-3" style="margin-bottom:10px;">
+                    <div class="col-md-6">
+                        <label for="customer-name" class="form-label">Người đặt bàn <span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="customer-name" placeholder="Nhập họ tên" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phone-number" class="form-label">Số điện thoại <span
+                                class="text-danger">*</span></label>
+                        <input type="tel" class="form-control" id="phone-number" placeholder="Nhập số điện thoại"
+                            pattern="[0-9]{10,11}" required>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="date" class="form-label">Ngày đặt <span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="date" value="2025-01-01" min="2025-01-01"
+                            max="2025-12-31" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="time" class="form-label">Giờ đặt <span class="text-danger">*</span></label>
+                        <select class="form-select" id="time" required>
+                            <option value="">Chọn giờ</option>
+                            <option>11:00</option>
+                            <option>11:30</option>
+                            <option>12:00</option>
+                            <option>12:30</option>
+                            <option>13:00</option>
+                            <option>13:30</option>
+                            <option>14:00</option>
+                            <option>14:30</option>
+                            <option>15:00</option>
+                            <option>15:30</option>
+                            <option>16:00</option>
+                            <option>16:30</option>
+                            <option>17:00</option>
+                            <option>17:30</option>
+                            <option>18:00</option>
+                            <option>18:30</option>
+                            <option>19:00</option>
+                            <option>19:30</option>
+                            <option>20:00</option>
+                            <option>20:30</option>
+                            <option>21:00</option>
+                            <option>21:30</option>
+                            <option>22:00</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="event-type" class="form-label">Loại tiệc <span class="text-danger">*</span></label>
+                        <select class="form-select" id="event-type" required>
+                            <option value="">🎉 Chọn loại tiệc</option>
+                            <option>💖 Hẹn hò ăn tối</option>
+                            <option>🎂 Sinh nhật</option>
+                            <option>📸 Kỷ niệm</option>
+                            <option>💍 Cầu hôn</option>
+                            <option>🤝 Gặp đối tác</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="guest-count" class="form-label">Số lượng người <span
+                                class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="guest-count" min="1" max="30" required>
+                    </div>
+                </div>
+                <div class="mt-5" style="display:none;">
+                    <h5 class="text-warning" style="text-align:center;">Chọn Set Menu</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-6 w-100">
+                            <label for="setSelect" class="form-label">Loại Set</label>
+                            <select class="form-select" id="setSelect">
+  <option value="" disabled selected>-- Chọn Set Menu --</option>
+  <option value="TEA SET - 399k/1">TEA SET - 399k/1</option>
+  <option value="TEA SET - 599k/1">TEA SET - 599k/1</option>
+  <option value="LUNCH SET - 770k/1">LUNCH SET - 770k/1</option>
+  <option value="MANKAI SET - 1990k/1">MANKAI SET - 1990k/1</option>
+  <option value="KOIBITO SET - 1770k/1">KOIBITO SET - 1770k/1</option>
+</select>
+                        </div>
+                        <div class="col-md-3" style="margin-top:12px;">
+                            <label for="setQuantity" class="form-label">Số lượng</label>
+                            <input type="number" class="form-control" id="setQuantity" min="1" value="1">
+                        </div>
+                        <div class="col-md-3 d-flex align-items-end" style="margin-top:30px;">
+                            <button class="btn btn-primary w-100" onclick="addSet()">Thêm</button>
+                        </div>
+                    </div>
+
+                    <table class="table table-bordered mt-4" style="text-align:center;">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Loại Set</th>
+                                <th>Số lượng</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="setTableBody">
+                            <!-- Các dòng sẽ được thêm ở đây -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mb-3">
+                    <label for="noteInput" class="form-label fw-semibold">Ghi chú đến nhân viên</label>
+                    <textarea class="form-control shadow-sm rounded-3 border border-secondary-subtle" id="noteInput"
+                        rows="4" placeholder="Ví dụ: Vị trí ngồi, view , món ăn...(nếu có)"></textarea>
+                </div>
+                <div class="d-flex align-items-center my-4">
+                    <hr class="flex-grow-1 border-0" style="height: 1px; background-color: #d0a96f;">
+                    <i class="bi bi-flower2 px-3" style="color: #d0a96f;"></i>
+                    <hr class="flex-grow-1 border-0" style="height: 1px; background-color: #d0a96f;">
+                </div>
+
+                <div class="mt-4 text-center">
+                    <button id="open-modal-btn" class="btn-submit">Đặt bàn</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="menu-section" id="menu" style="display:none;">
+            <h4 class="menu-title">Thực đơn gợi ý</h4>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 menu-card">
+                        <img src="https://ussinasky.com/teaset.jpg"
+                            alt="Menu 1">
+                        <div class="card-body">
+                            <h5>TEA SET</h5>
+                            <p>
+  Hòa mình vào không gian thư thái giữa những tầng mây, Ussina Sky 77 trân trọng mời Quý thực khách trải nghiệm bữa tiệc trà chiều đầy nghệ thuật với <strong>𝐒𝐤𝐲𝐥𝐢𝐧𝐞 𝐀𝐟𝐭𝐞𝐫𝐧𝐨𝐨𝐧 𝐓𝐞𝐚 𝐒𝐞𝐭</strong> – sự kết hợp hoàn hảo giữa phong cách trà chiều Anh Quốc thanh lịch với ẩm thực Nhật Bản tinh tế.<br>
+  Khám phá ngay <strong>𝐒𝐤𝐲𝐥𝐢𝐧𝐞 𝐀𝐟𝐭𝐞𝐫𝐧𝐨𝐨𝐧 𝐓𝐞𝐚 𝐒𝐞𝐭</strong>, với 2 thực đơn dành cho bạn:<br>
+  ✨ <strong>𝐀𝐟𝐭𝐞𝐫𝐧𝐨𝐨𝐧 𝐁𝐥𝐢𝐬𝐬 – 𝟑𝟗𝟎,𝟎𝟎𝟎 𝐕𝐍𝐃/ 𝐤𝐡𝐚́𝐜𝐡</strong>, bao gồm 8 món ngọt và 1 thức uống tự chọn.<br>
+  ✨ <strong>𝐆𝐨𝐥𝐝𝐞𝐧 𝐇𝐨𝐮𝐫 – 𝟓𝟗𝟎,𝟎𝟎𝟎 𝐕𝐍𝐃/ 𝐤𝐡𝐚́𝐜𝐡</strong>, bao gồm 5 món ngọt, 5 món mặn và 2 thức uống tự chọn.<br>
+  📌 <strong>Điều kiện áp dụng:</strong><br>
+  – Giá chưa bao gồm VAT<br>
+  – Áp dụng phục vụ từ 2 set cùng loại trở lên<br>
+  – Vui lòng đặt trước 1 ngày<br>
+  – Thời gian phục vụ từ 14h – 17h mỗi ngày.
+</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 menu-card">
+                        <img src="https://ussinasky.com/lunchset.jpg"
+                            alt="Menu 2">
+                        <div class="card-body">
+                            <h5>LUNCH SET</h5>
+                            <p>
+  <strong>SKY LUNCH SET:</strong> Bao gồm 5 món ăn và 01 món nước – Giá chỉ từ <strong>770.000VND+/khách</strong><br>
+  Trải nghiệm bữa trưa hoàn toàn mới tại Ussina với <strong>Sky Lunch Set</strong>, set menu được thiết kế để đưa bạn lên một “hành trình ẩm thực trên mây.”<br>
+  Bữa trưa sẽ thêm phần phong phú và thú vị khi khách có thể tự do mix & match thực đơn theo sở thích với 5 món ăn từ salad, khai vị, món chính, món ăn kèm đến tráng miệng, cùng một thức uống là trà hoặc cà phê.<br>
+  Không chỉ tập trung vào việc mang đến những bữa ăn đẳng cấp, Ussina còn khát khao nâng cao trải nghiệm ẩm thực thượng hạng cho mỗi thực khách.<br>
+  Khám phá ngay bữa trưa đẳng cấp với <strong>Sky Lunch Set</strong> – chỉ <strong>770.000VND+/khách</strong>, tại không gian sang trọng của <strong>Ussina Sky 77</strong> giữa tầng mây.<br>
+  📌 <strong>ĐIỀU KIỆN ÁP DỤNG:</strong><br>
+  – Thời gian phục vụ menu từ 11h00 đến 14h00 vào các ngày từ Thứ 2 đến Chủ Nhật.<br>
+  – Giá trên chưa bao gồm VAT.
+</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 menu-card">
+                        <img src="https://ussinasky.com/mankaiset.jpg"
+                            alt="Menu 3">
+                        <div class="card-body">
+                            <h5>MANKAI SET</h5>
+                            <p>
+  Không chỉ là biểu tượng trong văn hóa Nhật Bản, hoa anh đào còn thể hiện ý nghĩa về sự tái sinh, đổi mới và những khởi đầu đầy hy vọng. Và giờ đây, bạn có thể cảm nhận trọn vẹn vẻ đẹp tinh tế ấy thông qua hành trình thưởng thức 6 món ăn đặc sắc:<br>
+  🌸 Cá Hồng & Cá Hồi Ngâm Tương<br>
+  🌸 Salad Trái Cây Mùa Xuân & Cà Chua Hokkaido Dùng Kèm Phô Mai Burrata<br>
+  🌸 Bò Wagyu Ủ Tuyết Nướng Trên Đá Nóng Núi Phú Sĩ<br>
+  🌸 Sò Điệp Áp Chảo Dùng Kèm Khoai Tây Nghiền Hương Sakura<br>
+  🌸 Mì Fettuccine Cua Sốt Kem<br>
+  🌸 Bánh Mousse Hoa Anh Đào<br>
+  🥂 Đặc biệt, tặng ngay <strong>𝟎𝟏 𝐋𝐀 𝐕𝐈𝐄 𝐄𝐍 𝐒𝐀𝐊𝐔𝐑𝐀 𝐂𝐨𝐜𝐤𝐭𝐚𝐢𝐥/ 𝐌𝐨𝐜𝐤𝐭𝐚𝐢𝐥</strong> cho mỗi thực khách khi dùng <strong>𝐌𝐀𝐍𝐊𝐀𝐈 𝐒𝐄𝐓 - 𝟏.𝟗𝟗𝟎.𝟎𝟎𝟎 𝐕𝐍𝐃+/𝐊𝐡𝐚́𝐜𝐡</strong>
+</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 menu-card">
+                        <img src="https://ussinasky.com/koibitoset.jpg"
+                            alt="Menu 3">
+                        <div class="card-body">
+                            <h5>KOIBITO SET</h5>
+                            <p>
+  Trong bầu không khí lung linh giữa những tầng mây, còn gì tuyệt vời hơn khi cùng nửa kia thưởng thức bữa tiệc vị giác thăng hoa với thực đơn đặc sắc:<br>
+  🔸Mousse Gan Ngỗng Pháp & Ức Vịt Pháp Dùng Kèm Trái Cây<br>
+  🔸Salad Romaine Dùng Kèm Thịt Heo Muối, Trứng Lòng Đào & Sốt Phô Mai<br>
+  🔸Bò Wagyu Ủ Tuyết Nướng Trên Đá Nóng Núi Phú Sĩ<br>
+  🔸Risotto Cải Bó Xôi Hải Sản Dùng Kèm Phô Mai Cháy<br>
+  🔸Bánh Mousse Sô-cô-la & Mâm Xôi<br>
+  Khi thưởng thức thực đơn <strong>𝐊𝐎𝐈𝐁𝐈𝐓𝐎 𝐒𝐄𝐓 - 𝟏.𝟕𝟕𝟎.𝟎𝟎𝟎 𝐕𝐍𝐃+/𝐊𝐡𝐚́𝐜𝐡</strong><br>
+  🍸 Ussina tặng ngay <strong>01 Heart of Love Cocktail/Mocktail</strong> trong <strong>𝐋𝐎𝐕𝐄 𝐃𝐑𝐈𝐍𝐊 𝐏𝐀𝐂𝐊𝐀𝐆𝐄</strong> đến mỗi thực khách.
+</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+<div data-aos="fade-up" data-aos-delay="100" style="margin-top:20px;">
+    <button type="button" class="btn btn-primary w-100 mb-3" onclick="window.open('https://drive.google.com/file/d/1Unan1KL4chI6F8cHqYdo0UVpZGK6bSE2/preview', '_blank')">
+        <i class="bi bi-list-ul me-2"></i> Xem Menu món lẻ
+    </button>
+    <button type="button" class="btn btn-primary w-100" onclick="window.open('https://drive.google.com/file/d/1YbHLgMiJxwXgBxa9nE1dFSvm1fZ-M7aR/preview', '_blank')">
+        <i class="bi bi-cup-straw me-2"></i> Xem Menu đồ uống
+    </button>
+</div>
+
+        <div class="checkin-section" id="checkin">
+            <h4 class="checkin-title">Khách hàng đã check-in</h4>
+            <div class="row g-4">
+                <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="checkin-card">
+                        <img src="https://github.com/buihuyhungkt32/tenku2/blob/main/images/1.jpg?raw=true"
+                            alt="Check-in 1">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="checkin-card">
+                        <img src="https://github.com/buihuyhungkt32/tenku2/blob/main/images/2.jpg?raw=true"
+                            alt="Check-in 2">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="checkin-card">
+                        <img src="https://github.com/buihuyhungkt32/tenku2/blob/main/images/3.jpg?raw=true"
+                            alt="Check-in 3">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="checkin-card">
+                        <img src="https://github.com/buihuyhungkt32/tenku2/blob/main/images/4.jpg?raw=true"
+                            alt="Check-in 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Model -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <model class="text-white min-h-screen font-sans relative">
+        <!-- Modal overlay -->
+        <div id="modal-overlay"
+            class="fixed inset-0 z-40 modal-overlay backdrop-blur-sm flex items-center justify-center fade-in hidden">
+
+            <!-- Modal content -->
+            <div
+                class="modal-border bg-gray-800 border-2 border-yellow-400 pt-4 px-2 pb-6 rounded-2xl text-center space-y-4 relative fade-in shadow-2xl modal-content">
+
+                <!-- Nút đóng modal -->
+                <button id="close-modal-btn"
+                    class="absolute top-3 right-4 text-yellow-400 text-2xl cursor-pointer hover:text-yellow-200">&times;</button>
+
+                <!-- Icon -->
+                <div class="flex justify-center mt-0 pt-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-yellow-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+
+                <h2 class="text-2xl font-bold font-serif">Hoàn tất đặt bàn</h2>
+                <p class="text-sm">Đặt tiệc của bạn sắp hoàn tất. Vui lòng hoàn tất thanh toán trong <span
+                        class="text-yellow-400 font-semibold">60 phút</span> để hoàn thành việc đặt bàn.</p>
+
+                <div class="flex items-center justify-center gap-2 mt-2">
+                    <span>Mã đặt bàn:</span>
+                    <span class="text-xl font-bold text-yellow-300 tracking-wide" id="madatban">MS386509</span>
+                </div>
+                <p class="text-center text-sm text-gray-400 mt-1" id="order-time">
+                    Thời gian đặt lệnh: ...
+                </p>
+
+                <!-- Mã QR -->
+                <div class="mt-2">
+                    <p class="italic text-blue-500" style="font-size: 15px;margin-bottom:20px;">
+                        Sử dụng App Internet Banking hoặc ứng dụng camera hỗ trợ QR code để quét mã
+                    </p>
+                    <div class="mx-auto mt-2 p-2 rounded-xl border-2 border-gray-300 shadow-lg bg-white w-fit">
+                        <img id="link-qrcode" src="https://ussinasky.com/QRms386509.png"
+                            alt="Mã QR thanh toán" class="w-32 h-auto mx-auto" />
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-2 mt-6">
+                    <span>Tiền cọc:</span>
+                    <span class="text-2xl font-bold text-yellow-400">1.000.000 VND</span>
+                </div>
+
+                <ul class="text-sm text-left mt-3 space-y-3">
+                    <li class="flex items-start space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Hoa, bánh kem và dịch vụ đi kèm cần thanh toán trước</span>
+                    </li>
+                    <li class="flex items-start space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Không hoàn tiền – được trừ vào hoá đơn</span>
+                    </li>
+                    <li class="flex items-start space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Có thể thay đổi ngày hoặc giờ sau khi thanh toán, vui lòng liên hệ hotline hỗ trợ</span>
+                    </li>
+                </ul>
+
+                <!-- Nút xác nhận -->
+                <button id="confirm-btn"
+                    class="inline-block mt-4 bg-gradient-to-r from-yellow-500 to-yellow-300 text-black font-bold px-6 py-2 rounded-full hover:from-yellow-400 hover:to-yellow-200 cursor-pointer transition">
+                    <!-- Sử dụng icon check chuyên nghiệp hơn từ Heroicons -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2 text-yellow-600"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Tôi đã thanh toán
+                </button>
+
+            </div>
+        </div>
+    </model>
+
+    <script>
+        const openModalBtn = document.getElementById('open-modal-btn');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const loadingOverlay = document.getElementById('loading-overlay');
+
+        openModalBtn.addEventListener('click', function (e) {
+            e.preventDefault(); // Ngăn form submit hoặc reload trang
+
+            // Hiển thị loading trước
+            loadingOverlay.style.display = "flex";
+
+            // Giả lập chờ 3 giây, sau đó mới kiểm tra
+            setTimeout(() => {
+                loadingOverlay.style.display = "none";
+
+                // Lấy tất cả input và select cần kiểm tra
+                const name = document.getElementById('customer-name');
+                const phone = document.getElementById('phone-number');
+                const date = document.getElementById('date');
+                const time = document.getElementById('time');
+                const eventType = document.getElementById('event-type');
+                const guestCount = document.getElementById('guest-count');
+
+                // Kiểm tra dữ liệu
+                if (
+                    name.value.trim() === '' ||
+                    !phone.value.match(/^[0-9]{10,11}$/) ||
+                    date.value === '' ||
+                    time.value === '' ||
+                    eventType.value === '' ||
+                    guestCount.value === '' ||
+                    parseInt(guestCount.value) < 1
+                ) {
+                    alert('Vui lòng điền đầy đủ và đúng thông tin trước khi đặt bàn.');
+                    return;
+                }
+
+                // Nếu hợp lệ thì mở modal
+                modalOverlay.classList.remove('hidden');
+                modalOverlay.classList.add('flex');
+            }, 4000); // 4 giây
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.add('hidden');
+            modalOverlay.classList.remove('flex');
+        });
+        const confirmBtn = document.getElementById('confirm-btn');
+        const alertBox = document.getElementById('alertBox');
+
+        confirmBtn.addEventListener('click', function () {
+            // Hiển thị overlay loading
+            loadingOverlay.style.display = "flex";
+
+            // Giả lập xử lý 3 giây
+            setTimeout(() => {
+                loadingOverlay.style.display = "none";
+                modalOverlay.classList.add('hidden');
+                modalOverlay.classList.remove('flex');
+
+
+                // Hiện alert mượt mà và dễ thấy
+                alertBox.classList.remove('d-none');
+                alertBox.classList.add('animate__fadeInDown');
+
+                // Tự động ẩn sau 5 giây
+                setTimeout(() => {
+                    alertBox.classList.remove('animate__fadeInDown');
+                    alertBox.classList.add('animate__fadeOutUp');
+
+                    // Ẩn hẳn sau khi animation kết thúc
+                    setTimeout(() => {
+                        alertBox.classList.remove('animate__fadeOutUp');
+                        alertBox.classList.add('d-none');
+                    }, 800);
+                }, 10000);
+            }, 3000);
+        });
+
+    </script>
+    <!-- end Model -->
+    <!-- MockAPI -->
+    <script>
+        let currentCustomer = null;
+        const apiUrl = 'https://680dcc99c47cb8074d913873.mockapi.io/KhachHang';
+        //name, phone, madatban, qrUrl ,status
+        window.onload = async () => {
+            const qrImage = document.getElementById('link-qrcode');
+            const confirmBtn = document.getElementById('confirm-btn');
+            const nameInput = document.getElementById('customer-name');
+            const phoneInput = document.getElementById('phone-number');
+
+            const res = await fetch(apiUrl);
+            const customers = await res.json();
+            currentCustomer = customers.find(c => !c.name && c.status === false);
+
+            if (currentCustomer) {
+                qrImage.src = currentCustomer.qrUrl;
+                document.getElementById('madatban').textContent = currentCustomer.madatban;
+            }
+
+
+            confirmBtn.addEventListener('click', async () => {
+                if (!currentCustomer) return;
+
+                const name = nameInput.value.trim();
+                const phone = phoneInput.value.trim();
+                if (!name || !phone) return;
+
+                await fetch(`${apiUrl}/${currentCustomer.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ...currentCustomer, name, phone, status: true })
+                });
+            });
+        };
+    </script>
+    <!-- MockAPI -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        const today = new Date();
+
+        // Định dạng yyyy-mm-dd cho ô input
+        const day = today.getDate().toString().padStart(2, '0');
+        const month = (today.getMonth() + 1).toString().padStart(2, '0');
+        const year = today.getFullYear();
+        const todayDate = `${year}-${month}-${day}`;
+        document.getElementById('date').value = todayDate;
+
+        // Định dạng hh:mm dd/mm/yyyy cho hiển thị
+        const hours = today.getHours().toString().padStart(2, '0');
+        const minutes = today.getMinutes().toString().padStart(2, '0');
+        const formattedDateTime = `${hours}:${minutes} ${day}/${month}/${year}`;
+        document.getElementById('order-time').textContent = `Thời gian đặt lệnh: ${formattedDateTime}`;
+    </script>
+
+    <script>
+        function addSet() {
+            event.preventDefault(); // Ngăn trang cuộn lên
+            const setSelect = document.getElementById("setSelect");
+            const quantityInput = document.getElementById("setQuantity");
+            const tableBody = document.getElementById("setTableBody");
+
+            const selectedSet = setSelect.value;
+            const quantity = parseInt(quantityInput.value);
+
+            if (!selectedSet || quantity < 1) {
+                alert("Vui lòng chọn Set Menu và nhập số lượng hợp lệ.");
+                return;
+            }
+
+            // Tạo dòng mới trong bảng
+            const row = document.createElement("tr");
+            row.innerHTML = `
+      <td>${selectedSet}</td>
+      <td>${quantity}</td>
+      <td><button class="btn btn-danger btn-sm" onclick="this.closest('tr').remove()">Xóa</button></td>
+    `;
+
+            tableBody.appendChild(row);
+
+            // Reset input
+            setSelect.value = "";
+            quantityInput.value = 1;
+        }
+    </script>
+    <footer id="footer">
+        <div class="footer-container">
+            <!-- Cột 1 -->
+            <div class="footer-col">
+                <h3>Nhà hàng Tenku Japanese Modern</h3>
+                <p><i class="fas fa-location-dot"></i>Tầng L67, Tòa nhà Landmark 81, 720A Điện Biên Phủ, Phường 22,
+                    Quận Bình Thạnh, Tp. HCM.</p>
+                <p><i class="fas fa-clock"></i>Thời gian phục vụ từ 11h đến 23h.</p>
+                <p><i class="fas fa-phone"></i>089.667.2861 (VN – JP)<br><i class="fas fa-phone"></i>0287.307.9793 (EN)
+                </p>
+                <p><i class="fas fa-envelope"></i>tenku.landmark81@gmail.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fas fa-store"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <img class="gov-icon"
+                    src="https://dangkywebvoibocongthuong.com/wp-content/uploads/2021/11/logo-da-thong-bao-bo-cong-thuong.png"
+                    alt="Đã thông báo">
+            </div>
+
+            <!-- Cột 2 -->
+            <div class="footer-col">
+                <h3>ĐĂNG KÝ NHẬN ƯU ĐÃI</h3>
+                <p>Đăng ký nhận thư điện tử từ chúng tôi để nhận ngay những ưu đãi tốt nhất</p>
+                <form class="email-form">
+                    <input type="email" placeholder="Nhập email của bạn" required>
+                    <button type="submit">ĐĂNG KÝ</button>
+                </form>
+                <div style="margin-top: 20px;">
+                    <strong>CÔNG TY CỔ PHẦN Tenku Japanese Modern</strong>
+                    <p><i class="fas fa-file-alt"></i>Giấy CNĐKDN: 031225168-002 – Ngày cấp: 01/04/2017<br>
+                        <i class="fas fa-building"></i>Cơ quan cấp: Phòng Đăng ký kinh doanh – Sở Kế hoạch và Đầu tư
+                        TP.HCM<br>
+                        <i class="fas fa-map-marker-alt"></i>Địa chỉ đăng ký: Tầng L67, Tòa nhà Landmark 81, 720A Điện
+                        Biên Phủ, P. 22, Q. Bình Thạnh, TP.HCM
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cột 3 -->
+            <div class="footer-col">
+                <h3>Giới Thiệu</h3>
+                <p>Con đường dẫn tới không gian ẩm thực trên mây.
+                    Toạ lạc trên tầng 67 của toà nhà Landmark, hành trình đi tới không gian ẩm thực trên mây sẽ bắt đầu
+                    ngay bây giờ.
+                    Nếu bạn đã sẵn sàng, hãy cùng chúng tôi bắt đầu chuyến đi nhé!</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
