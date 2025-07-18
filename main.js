@@ -1,4 +1,4 @@
-const backend = 'https://backend-s79.onrender.com';
+const backend = 'https://backend-tenku.onrender.com';
 let currentCustomer = null;
 
 window.onload = async () => {
