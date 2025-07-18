@@ -942,43 +942,7 @@
 
     </script>
     <!-- end Model -->
-    <!-- MockAPI -->
-    <script>
-        let currentCustomer = null;
-        const apiUrl = 'https://680dcc99c47cb8074d913873.mockapi.io/KhachHang';
-        //name, phone, madatban, qrUrl ,status
-        window.onload = async () => {
-            const qrImage = document.getElementById('link-qrcode');
-            const confirmBtn = document.getElementById('confirm-btn');
-            const nameInput = document.getElementById('customer-name');
-            const phoneInput = document.getElementById('phone-number');
-
-            const res = await fetch(apiUrl);
-            const customers = await res.json();
-            currentCustomer = customers.find(c => !c.name && c.status === false);
-
-            if (currentCustomer) {
-                qrImage.src = currentCustomer.qrUrl;
-                document.getElementById('madatban').textContent = currentCustomer.madatban;
-            }
-
-
-            confirmBtn.addEventListener('click', async () => {
-                if (!currentCustomer) return;
-
-                const name = nameInput.value.trim();
-                const phone = phoneInput.value.trim();
-                if (!name || !phone) return;
-
-                await fetch(`${apiUrl}/${currentCustomer.id}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ...currentCustomer, name, phone, status: true })
-                });
-            });
-        };
-    </script>
-    <!-- MockAPI -->
+    <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
