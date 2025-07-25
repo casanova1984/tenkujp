@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <title>Nhà Hàng Cao Cấp TENKU | Đặt Bàn, Menu Đa Dạng, Không Gian Sang Trọng</title>
     <link rel="icon" type="image/png" href="https://www.s79vietnam.com/assets/images/favicon.png">
-    <meta property="og:image"
-        content="https://www.tenkuvietnam.com/images/bia.jpg" />
+    <meta property="og:image" content="https://www.tenkuvietnam.com/images/bia.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -352,16 +351,245 @@
             height: 3rem;
             color: #ffc107;
         }
+
+        /* 83. loader */
+        .preloader {
+            background-color: #0d4273;
+            /* Màu xanh */
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            z-index: 999111111;
+            left: 0;
+            top: 0;
+            transition-duration: 1s;
+            -webkit-transition-duration: 1s;
+            transition-timing-function: cubic-bezier(0.86, 0, 0.09, 1);
+            -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.09, 1);
+        }
+
+        .page-loaded .preloader {
+            top: -100%;
+            z-index: 1111111;
+        }
+
+        .preloader .container {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: auto;
+            animation: rotate-move 2s ease-in-out infinite;
+        }
+
+        .dot {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #000;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .dot-3 {
+            background-color: #8b0000;
+            animation: dot-3-move 2s ease infinite, index 6s ease infinite;
+        }
+
+        .dot-2 {
+            background-color: #d4af37;
+            animation: dot-2-move 2s ease infinite, index 6s -4s ease infinite;
+        }
+
+        .dot-1 {
+            background-color: #5d4037;
+            animation: dot-1-move 2s ease infinite, index 6s -2s ease infinite;
+        }
+
+        @keyframes dot-3-move {
+            20% {
+                transform: scale(1)
+            }
+
+            45% {
+                transform: translateY(-18px) scale(.45)
+            }
+
+            60% {
+                transform: translateY(-90px) scale(.45)
+            }
+
+            80% {
+                transform: translateY(-90px) scale(.45)
+            }
+
+            100% {
+                transform: translateY(0px) scale(1)
+            }
+        }
+
+        @keyframes dot-2-move {
+            20% {
+                transform: scale(1)
+            }
+
+            45% {
+                transform: translate(-16px, 12px) scale(.45)
+            }
+
+            60% {
+                transform: translate(-80px, 60px) scale(.45)
+            }
+
+            80% {
+                transform: translate(-80px, 60px) scale(.45)
+            }
+
+            100% {
+                transform: translateY(0px) scale(1)
+            }
+        }
+
+        @keyframes dot-1-move {
+            20% {
+                transform: scale(1)
+            }
+
+            45% {
+                transform: translate(16px, 12px) scale(.45)
+            }
+
+            60% {
+                transform: translate(80px, 60px) scale(.45)
+            }
+
+            80% {
+                transform: translate(80px, 60px) scale(.45)
+            }
+
+            100% {
+                transform: translateY(0px) scale(1)
+            }
+        }
+
+        @keyframes rotate-move {
+            55% {
+                transform: translate(-50%, -50%) rotate(0deg)
+            }
+
+            80% {
+                transform: translate(-50%, -50%) rotate(360deg)
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg)
+            }
+        }
+
+        .header-top {
+            background: linear-gradient(to right, #0d4273, #3269a8);
+            color: #fff;
+            font-size: 14px;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 0 15px;
+        }
+
+        .header-top span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-top i {
+            color: #ffdd57;
+        }
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            position: relative;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee-slide 20s linear infinite;
+        }
+
+        .marquee-content span {
+            display: inline-block;
+
+        }
+
+        @keyframes marquee-slide {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- preloader -->
+    <div class="preloader">
+        <div class="container">
+            <div class="dot dot-1"></div>
+            <div class="dot dot-2"></div>
+            <div class="dot dot-3"></div>
+        </div>
+    </div>
+    <script>
+        // Tự động thêm class sau 3s để trượt preloader lên
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.body.classList.add('page-loaded');
+            }, 2000);
+        });
+    </script>
     <div class="loading-overlay" id="loading-overlay">
         <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
     <header class="mb-2">
+        <div class="header-top">
+            <div class="container">
+                <div class="marquee">
+                    <div class="marquee-content" id="marquee-text">
+                        <i class="fas fa-bell"></i>
+                        <span></span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid px-3">
                 <a class="navbar-brand d-flex align-items-center text-white" href="#"
@@ -495,18 +723,18 @@
                         <div class="col-md-6 w-100">
                             <label for="setSelect" class="form-label">Loại Set</label>
                             <select class="form-select" id="setSelect">
-    <option value="" disabled selected>-- Chọn Set Menu --</option>
-    <option value="TEA SET">TEA SET</option>
-    <option value="LUNCH SET 1">LUNCH SET 1</option>
-    <option value="LUNCH SET 2">LUNCH SET 2</option>
-    <option value="LUNCH SET 3">LUNCH SET 3</option>
-    <option value="LUNCH SET 4">LUNCH SET 4</option>
-    <option value="MANTEN SET">MANTEN SET</option>
-    <option value="WAGYU LOVER SET">WAGYU LOVER SET</option>
-    <option value="KANI LOVER SET">KANI LOVER SET</option>
-    <option value="BÓ HOA HỒNG ĐỎ TƯƠI - 499K">BÓ HOA HỒNG ĐỎ TƯƠI - 499K</option>
-    <option value="BÁNH KEM SINH NHẬT - 399K">BÁNH KEM SINH NHẬT - 399K</option>
-</select>
+                                <option value="" disabled selected>-- Chọn Set Menu --</option>
+                                <option value="TEA SET">TEA SET</option>
+                                <option value="LUNCH SET 1">LUNCH SET 1</option>
+                                <option value="LUNCH SET 2">LUNCH SET 2</option>
+                                <option value="LUNCH SET 3">LUNCH SET 3</option>
+                                <option value="LUNCH SET 4">LUNCH SET 4</option>
+                                <option value="MANTEN SET">MANTEN SET</option>
+                                <option value="WAGYU LOVER SET">WAGYU LOVER SET</option>
+                                <option value="KANI LOVER SET">KANI LOVER SET</option>
+                                <option value="BÓ HOA HỒNG ĐỎ TƯƠI - 499K">BÓ HOA HỒNG ĐỎ TƯƠI - 499K</option>
+                                <option value="BÁNH KEM SINH NHẬT - 399K">BÁNH KEM SINH NHẬT - 399K</option>
+                            </select>
                         </div>
                         <div class="col-md-3" style="margin-top:12px;">
                             <label for="setQuantity" class="form-label">Số lượng</label>
@@ -556,16 +784,17 @@
                         <div class="card-body">
                             <h5>TEA SET</h5>
                             <p>✨ 𝑺𝑾𝑬𝑬𝑻 𝑯𝑬𝑨𝑽𝑬𝑵 𝑻𝑬𝑨 𝑺𝑬𝑻
-390,000VNĐ+ / Set / Khách
-<br>Bao gồm 7 món ngọt và 1 món nước tự chọn, với hương vị độc bản chỉ có tại Tenku. 
-<br>✨ 𝑹𝑶𝒀𝑨𝑳 𝑻𝑬𝑨 𝑺𝑬𝑻 
-590,000VNĐ+ / Set / Khách
-<br>Bao gồm 7 món ngọt, 3 món mặn và 2 món nước tự chọn, là sự giao thoa ẩm thực Âu-Nhật, với các nguyên liệu cao cấp.<br>
- 📌 <strong>Điều kiện áp dụng:</strong><br>
-  – Giá chưa bao gồm VAT<br>
-  – Áp dụng phục vụ từ 2 set cùng loại trở lên<br>
-  – Vui lòng đặt trước 1 ngày<br>
-  – Thời gian phục vụ từ 14h – 17h mỗi ngày.                       
+                                390,000VNĐ+ / Set / Khách
+                                <br>Bao gồm 7 món ngọt và 1 món nước tự chọn, với hương vị độc bản chỉ có tại Tenku.
+                                <br>✨ 𝑹𝑶𝒀𝑨𝑳 𝑻𝑬𝑨 𝑺𝑬𝑻
+                                590,000VNĐ+ / Set / Khách
+                                <br>Bao gồm 7 món ngọt, 3 món mặn và 2 món nước tự chọn, là sự giao thoa ẩm thực
+                                Âu-Nhật, với các nguyên liệu cao cấp.<br>
+                                📌 <strong>Điều kiện áp dụng:</strong><br>
+                                – Giá chưa bao gồm VAT<br>
+                                – Áp dụng phục vụ từ 2 set cùng loại trở lên<br>
+                                – Vui lòng đặt trước 1 ngày<br>
+                                – Thời gian phục vụ từ 14h – 17h mỗi ngày.
                             </p>
                         </div>
                     </div>
@@ -575,10 +804,13 @@
                         <img src="https://tenkuvietnam.com/images/lunchset1.jpg" alt="Menu 2">
                         <div class="card-body">
                             <h5>LUNCH SET 1</h5>
-                            <p>Sky Lunch mang đến trải nghiệm trọn vẹn, mỗi set bao gồm: món chính, món phụ, tráng miệng và thức uống. Set menu được thiết kế tinh tế và cân bằng cả về định lượng và dinh dưỡng, giúp thực khách có một bữa trưa đầy ấn tượng và nạp đủ năng lượng cho một buổi chiều làm việc hiệu quả.<br>
+                            <p>Sky Lunch mang đến trải nghiệm trọn vẹn, mỗi set bao gồm: món chính, món phụ, tráng miệng
+                                và thức uống. Set menu được thiết kế tinh tế và cân bằng cả về định lượng và dinh dưỡng,
+                                giúp thực khách có một bữa trưa đầy ấn tượng và nạp đủ năng lượng cho một buổi chiều làm
+                                việc hiệu quả.<br>
                                 📌 <strong>ĐIỀU KIỆN ÁP DỤNG:</strong><br>
-  – Thời gian phục vụ menu từ 11h00 đến 14h00 vào các ngày từ Thứ 2 đến Chủ Nhật.<br>
-  – Giá trên chưa bao gồm VAT.</p>
+                                – Thời gian phục vụ menu từ 11h00 đến 14h00 vào các ngày từ Thứ 2 đến Chủ Nhật.<br>
+                                – Giá trên chưa bao gồm VAT.</p>
                         </div>
                     </div>
                 </div>
@@ -587,10 +819,13 @@
                         <img src="https://tenkuvietnam.com/images/lunchset2.jpg" alt="Menu 3">
                         <div class="card-body">
                             <h5>LUNCH SET 2</h5>
-                            <p>Sky Lunch mang đến trải nghiệm trọn vẹn, mỗi set bao gồm: món chính, món phụ, tráng miệng và thức uống. Set menu được thiết kế tinh tế và cân bằng cả về định lượng và dinh dưỡng, giúp thực khách có một bữa trưa đầy ấn tượng và nạp đủ năng lượng cho một buổi chiều làm việc hiệu quả.<br>
+                            <p>Sky Lunch mang đến trải nghiệm trọn vẹn, mỗi set bao gồm: món chính, món phụ, tráng miệng
+                                và thức uống. Set menu được thiết kế tinh tế và cân bằng cả về định lượng và dinh dưỡng,
+                                giúp thực khách có một bữa trưa đầy ấn tượng và nạp đủ năng lượng cho một buổi chiều làm
+                                việc hiệu quả.<br>
                                 📌 <strong>ĐIỀU KIỆN ÁP DỤNG:</strong><br>
-  – Thời gian phục vụ menu từ 11h00 đến 14h00 vào các ngày từ Thứ 2 đến Chủ Nhật.<br>
-  – Giá trên chưa bao gồm VAT.</p>
+                                – Thời gian phục vụ menu từ 11h00 đến 14h00 vào các ngày từ Thứ 2 đến Chủ Nhật.<br>
+                                – Giá trên chưa bao gồm VAT.</p>
                         </div>
                     </div>
                 </div>
@@ -600,10 +835,13 @@
                         <img src="https://tenkuvietnam.com/images/lunchset3.jpg" alt="Menu 3">
                         <div class="card-body">
                             <h5>LUNCH SET 3</h5>
-                            <p>Sky Lunch mang đến trải nghiệm trọn vẹn, mỗi set bao gồm: món chính, món phụ, tráng miệng và thức uống. Set menu được thiết kế tinh tế và cân bằng cả về định lượng và dinh dưỡng, giúp thực khách có một bữa trưa đầy ấn tượng và nạp đủ năng lượng cho một buổi chiều làm việc hiệu quả.<br>
+                            <p>Sky Lunch mang đến trải nghiệm trọn vẹn, mỗi set bao gồm: món chính, món phụ, tráng miệng
+                                và thức uống. Set menu được thiết kế tinh tế và cân bằng cả về định lượng và dinh dưỡng,
+                                giúp thực khách có một bữa trưa đầy ấn tượng và nạp đủ năng lượng cho một buổi chiều làm
+                                việc hiệu quả.<br>
                                 📌 <strong>ĐIỀU KIỆN ÁP DỤNG:</strong><br>
-  – Thời gian phục vụ menu từ 11h00 đến 14h00 vào các ngày từ Thứ 2 đến Chủ Nhật.<br>
-  – Giá trên chưa bao gồm VAT.</p>
+                                – Thời gian phục vụ menu từ 11h00 đến 14h00 vào các ngày từ Thứ 2 đến Chủ Nhật.<br>
+                                – Giá trên chưa bao gồm VAT.</p>
                         </div>
                     </div>
                 </div>
@@ -613,10 +851,13 @@
                         <img src="https://tenkuvietnam.com/images/lunchset4.jpg" alt="Menu 3">
                         <div class="card-body">
                             <h5>LUNCH SET 4</h5>
-                            <p>Sky Lunch mang đến trải nghiệm trọn vẹn, mỗi set bao gồm: món chính, món phụ, tráng miệng và thức uống. Set menu được thiết kế tinh tế và cân bằng cả về định lượng và dinh dưỡng, giúp thực khách có một bữa trưa đầy ấn tượng và nạp đủ năng lượng cho một buổi chiều làm việc hiệu quả.<br>
+                            <p>Sky Lunch mang đến trải nghiệm trọn vẹn, mỗi set bao gồm: món chính, món phụ, tráng miệng
+                                và thức uống. Set menu được thiết kế tinh tế và cân bằng cả về định lượng và dinh dưỡng,
+                                giúp thực khách có một bữa trưa đầy ấn tượng và nạp đủ năng lượng cho một buổi chiều làm
+                                việc hiệu quả.<br>
                                 📌 <strong>ĐIỀU KIỆN ÁP DỤNG:</strong><br>
-  – Thời gian phục vụ menu từ 11h00 đến 14h00 vào các ngày từ Thứ 2 đến Chủ Nhật.<br>
-  – Giá trên chưa bao gồm VAT.</p>
+                                – Thời gian phục vụ menu từ 11h00 đến 14h00 vào các ngày từ Thứ 2 đến Chủ Nhật.<br>
+                                – Giá trên chưa bao gồm VAT.</p>
                         </div>
                     </div>
                 </div>
@@ -627,22 +868,23 @@
                         <div class="card-body">
                             <h5>MANTEN SET</h5>
                             <p>
-8 món: 890.000 VND+ / khách<br>
-11 món: 1.290.000 VND+ / khách</p>
+                                8 món: 890.000 VND+ / khách<br>
+                                11 món: 1.290.000 VND+ / khách</p>
 
-<p>- Bánh Mì Mềm Thượng Hạng Nhật Bản Dùng Kèm Bơ Cà Chua Hokkaido<br>
-- Súp Bí Đỏ Nhật Bản<br>
-- Tapioca “Homemade” Nhân Cua Tuyết<br>
-- Cá Tuyết Nướng Dùng Kèm Đậu Nành Nhật Bản & Sốt Cải Kale<br>
-- Kem Chanh<br>
-- Wagyu Sukiyaki Dùng Kèm Sốt Ponzu / Wagyu Hun Khói Sốt Sake Gan Ngỗng<br>
-- Mì Udon Lạnh Dùng Kèm Mentaiko & Trứng Cuộn Kiểu Nhật / Mì Sò Điệp Hokkaido Với Sốt Kem Hoa Đậu Biếc<br>
-- Bánh Bông Lan Trà Xanh Cuộn Kiểu Nhật</p>
+                            <p>- Bánh Mì Mềm Thượng Hạng Nhật Bản Dùng Kèm Bơ Cà Chua Hokkaido<br>
+                                - Súp Bí Đỏ Nhật Bản<br>
+                                - Tapioca “Homemade” Nhân Cua Tuyết<br>
+                                - Cá Tuyết Nướng Dùng Kèm Đậu Nành Nhật Bản & Sốt Cải Kale<br>
+                                - Kem Chanh<br>
+                                - Wagyu Sukiyaki Dùng Kèm Sốt Ponzu / Wagyu Hun Khói Sốt Sake Gan Ngỗng<br>
+                                - Mì Udon Lạnh Dùng Kèm Mentaiko & Trứng Cuộn Kiểu Nhật / Mì Sò Điệp Hokkaido Với Sốt
+                                Kem Hoa Đậu Biếc<br>
+                                - Bánh Bông Lan Trà Xanh Cuộn Kiểu Nhật</p>
 
-<p><em>(Chỉ có ở set 11 món):</em><br>
-- Iberico Muối Dùng Kèm Phô Mai & Cà Chua Hokkaido<br>
-- Trứng Hikari Nhật Bản Dùng Kèm Giấm Balsamic Hương Nấm Truffle<br>
-- Iberico Nướng Sốt Teriyaki</p>
+                            <p><em>(Chỉ có ở set 11 món):</em><br>
+                                - Iberico Muối Dùng Kèm Phô Mai & Cà Chua Hokkaido<br>
+                                - Trứng Hikari Nhật Bản Dùng Kèm Giấm Balsamic Hương Nấm Truffle<br>
+                                - Iberico Nướng Sốt Teriyaki</p>
                         </div>
                     </div>
                 </div>
@@ -653,22 +895,22 @@
                         <div class="card-body">
                             <h5>WAGYU LOVER SET</h5>
                             <p>
-8 món: 1.490.000 VND+ / khách<br>
-11 món: 2.190.000 VND+ / khách</p>
+                                8 món: 1.490.000 VND+ / khách<br>
+                                11 món: 2.190.000 VND+ / khách</p>
 
-<p>- Bánh Mì Mềm Thượng Hạng Nhật Bản Dùng Kèm Bơ Cà Chua Hokkaido<br>
-- Sushi Wagyu & Cầu Gai Nhật Bản<br>
-- Trứng Hấp Kiểu Nhật Với Gan Ngỗng & Nấm Nhật<br>
-- Salad Bò Wagyu<br>
-- Kem Chanh<br>
-- Wagyu Nướng Dùng Kèm Rau Củ<br>
-- Lẩu Sukiyaki Wagyu Dùng Kèm Rau Củ<br>
-- Bánh Đại Phúc Nhân Kem Xoài</p>
+                            <p>- Bánh Mì Mềm Thượng Hạng Nhật Bản Dùng Kèm Bơ Cà Chua Hokkaido<br>
+                                - Sushi Wagyu & Cầu Gai Nhật Bản<br>
+                                - Trứng Hấp Kiểu Nhật Với Gan Ngỗng & Nấm Nhật<br>
+                                - Salad Bò Wagyu<br>
+                                - Kem Chanh<br>
+                                - Wagyu Nướng Dùng Kèm Rau Củ<br>
+                                - Lẩu Sukiyaki Wagyu Dùng Kèm Rau Củ<br>
+                                - Bánh Đại Phúc Nhân Kem Xoài</p>
 
-<p><em>(Chỉ có ở set 11 món):</em><br>
-- Cocktail Cà Chua Hokkaido Dùng Kèm Tôm Đỏ Nhật Bản & Sò Điệp Hokkaido<br>
-- Tôm Chiên Kiểu Tempura<br>
-- Cơm Trà Nhật Bản Dùng Kèm Wagyu & Trứng Cá Hồi</p>
+                            <p><em>(Chỉ có ở set 11 món):</em><br>
+                                - Cocktail Cà Chua Hokkaido Dùng Kèm Tôm Đỏ Nhật Bản & Sò Điệp Hokkaido<br>
+                                - Tôm Chiên Kiểu Tempura<br>
+                                - Cơm Trà Nhật Bản Dùng Kèm Wagyu & Trứng Cá Hồi</p>
                         </div>
                     </div>
                 </div>
@@ -679,22 +921,22 @@
                         <div class="card-body">
                             <h5>KANI LOVER SET</h5>
                             <p>
-8 món: 1.290.000 VND+ / khách<br>
-11 món: 1.990.000 VND+ / khách</p>
+                                8 món: 1.290.000 VND+ / khách<br>
+                                11 món: 1.990.000 VND+ / khách</p>
 
-<p>- Bánh Mì Mềm Thượng Hạng Nhật Bản Dùng Kèm Bơ Cà Chua Hokkaido<br>
-- Sushi Cua Tuyết & Cầu Gai Nhật Bản<br>
-- Cua Tuyết Nướng Sốt Miso<br>
-- Salad Cua Tuyết Dùng Kèm Sốt Yuzu<br>
-- Kem Chanh<br>
-- Wagyu Nướng Dùng Kèm Rau Củ<br>
-- Cơm Trộn Kiểu Nhật Bản Dùng Kèm Cua Tuyết & Trứng Cá Hồi<br>
-- Bánh Đại Phúc Nhân Kem Xoài</p>
+                            <p>- Bánh Mì Mềm Thượng Hạng Nhật Bản Dùng Kèm Bơ Cà Chua Hokkaido<br>
+                                - Sushi Cua Tuyết & Cầu Gai Nhật Bản<br>
+                                - Cua Tuyết Nướng Sốt Miso<br>
+                                - Salad Cua Tuyết Dùng Kèm Sốt Yuzu<br>
+                                - Kem Chanh<br>
+                                - Wagyu Nướng Dùng Kèm Rau Củ<br>
+                                - Cơm Trộn Kiểu Nhật Bản Dùng Kèm Cua Tuyết & Trứng Cá Hồi<br>
+                                - Bánh Đại Phúc Nhân Kem Xoài</p>
 
-<p><em>(Chỉ có ở set 11 món):</em><br>
-- Cocktail Cà Chua Hokkaido Dùng Kèm Tôm Đỏ Nhật Bản & Sò Điệp Hokkaido<br>
-- Trứng Hấp Kiểu Nhật Với Gan Ngỗng & Nấm Nhật<br>
-- Lẩu Cua Tuyết Dùng Kèm Rau Củ</p>
+                            <p><em>(Chỉ có ở set 11 món):</em><br>
+                                - Cocktail Cà Chua Hokkaido Dùng Kèm Tôm Đỏ Nhật Bản & Sò Điệp Hokkaido<br>
+                                - Trứng Hấp Kiểu Nhật Với Gan Ngỗng & Nấm Nhật<br>
+                                - Lẩu Cua Tuyết Dùng Kèm Rau Củ</p>
 
                         </div>
                     </div>
@@ -733,14 +975,16 @@
 
             </div>
         </div>
-<div data-aos="fade-up" data-aos-delay="100" style="margin-top:20px;">
-    <button type="button" class="btn btn-primary w-100 mb-3" onclick="window.open('https://drive.google.com/file/d/1Unan1KL4chI6F8cHqYdo0UVpZGK6bSE2/preview', '_blank')">
-        <i class="bi bi-list-ul me-2"></i> Xem Menu món lẻ
-    </button>
-    <button type="button" class="btn btn-primary w-100" onclick="window.open('https://drive.google.com/file/d/1YbHLgMiJxwXgBxa9nE1dFSvm1fZ-M7aR/preview', '_blank')">
-        <i class="bi bi-cup-straw me-2"></i> Xem Menu đồ uống
-    </button>
-</div>
+        <div data-aos="fade-up" data-aos-delay="100" style="margin-top:20px;">
+            <button type="button" class="btn btn-primary w-100 mb-3"
+                onclick="window.open('https://drive.google.com/file/d/1Unan1KL4chI6F8cHqYdo0UVpZGK6bSE2/preview', '_blank')">
+                <i class="bi bi-list-ul me-2"></i> Xem Menu món lẻ
+            </button>
+            <button type="button" class="btn btn-primary w-100"
+                onclick="window.open('https://drive.google.com/file/d/1YbHLgMiJxwXgBxa9nE1dFSvm1fZ-M7aR/preview', '_blank')">
+                <i class="bi bi-cup-straw me-2"></i> Xem Menu đồ uống
+            </button>
+        </div>
         <div class="checkin-section" id="checkin">
             <h4 class="checkin-title">Khách hàng đã check-in</h4>
             <div class="row g-4">
@@ -811,8 +1055,7 @@
                         Sử dụng App Internet Banking hoặc ứng dụng camera hỗ trợ QR code để quét mã
                     </p>
                     <div class="mx-auto mt-1 p-1 rounded-xl border-2 border-gray-300 shadow-lg bg-white w-fit">
-                        <img id="link-qrcode" src="https://img.vietqr.io/image/mbbank-002471993-compact.jpg?amount=1000000&addInfo=CK%20MS482617&accountName=DO%20VAN%20MINH"
-                            alt="Mã QR thanh toán" class="w-36 h-auto mx-auto" />
+                        <img id="link-qrcode" src="" alt="Mã QR thanh toán" class="w-36 h-auto mx-auto" />
                     </div>
                 </div>
 
@@ -995,6 +1238,53 @@
             setSelect.value = "";
             quantityInput.value = 1;
         }
+    </script>
+    <script>
+        let marquee = document.getElementById('marquee-text');
+        const messages = [
+            { icon: 'fas fa-bell', text: 'Hệ thống đặt bàn trực tuyến hoạt động 24/7 – Liên hệ nếu cần hỗ trợ !' },
+            { icon: 'fas fa-gift', text: 'Đặt bàn trước – Nhận ngay gói trang trí miễn phí cho dịp sinh nhật, kỷ niệm hoặc cầu hôn !' },
+            { icon: 'fas fa-star', text: 'Trải nghiệm ẩm thực đỉnh cao với thực đơn 5 sao của chúng tôi !' },
+            { icon: 'fas fa-users', text: 'Hơn 10.000 thực khách đã tin tưởng và lựa chọn nhà hàng mỗi năm !' }
+        ];
+
+        let index = 0;
+
+        function updateMarquee() {
+            const marqueeParent = marquee.parentNode;
+            const newMarquee = document.createElement('div');
+            newMarquee.className = 'marquee-content';
+            newMarquee.id = 'marquee-text';
+            newMarquee.innerHTML = `
+    <i class="${messages[index].icon}"></i>
+    <span>${messages[index].text}</span>
+  `;
+            marqueeParent.replaceChild(newMarquee, marquee);
+            marquee = newMarquee;
+
+            // Tính chiều dài chữ
+            requestAnimationFrame(() => {
+                const textWidth = marquee.offsetWidth;
+                const containerWidth = marqueeParent.offsetWidth;
+                const distance = textWidth + containerWidth;
+                const speed = 100; // px/s – bạn có thể điều chỉnh tốc độ
+                const duration = distance / speed;
+
+                marquee.style.animationDuration = `${duration}s`;
+
+                // Sau khi chạy xong, gọi lại
+                setTimeout(() => {
+                    index = (index + 1) % messages.length;
+                    updateMarquee();
+                }, duration * 1000);
+            });
+        }
+
+        function initHeader() {
+            updateMarquee();
+        }
+
+        window.addEventListener('load', initHeader);
     </script>
     <footer id="footer">
         <div class="footer-container">
